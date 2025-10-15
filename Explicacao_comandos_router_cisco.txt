@@ -1,0 +1,85 @@
+Explicação detalhada dos comandos do arquivo config router cisco-01.txt
+
+1. enable
+Entra no modo EXEC privilegiado, permitindo realizar configurações e comandos avançados.
+
+2. clock set 19:20:00 15 October 2025
+Define a data e hora do roteador manualmente, útil para registros de log e auditoria.
+
+3. configure terminal
+Entra no modo de configuração global, onde se alteram parâmetros e interfaces do sistema.
+
+4. hostname rt-01
+Define o nome do dispositivo (hostname) exibido no prompt de comando.
+
+5. service password-encryptation
+Ativa a criptografia das senhas armazenadas na configuração (deveria ser 'service password-encryption').
+
+6. security passwords min-length 8
+Define que todas as senhas devem ter no mínimo 8 caracteres.
+
+7. login block-for 120 attemps 2 within 60
+Bloqueia o login por 120 segundos após 2 tentativas falhas em 60 segundos (deveria ser 'attempts').
+
+8. service timestamps log datetime msec / service timestamps debug datetime msec
+Adiciona data e hora (com milissegundos) às mensagens de log e debug.
+
+9. logging buffered 4096
+Armazena mensagens de log na memória (buffer) do roteador com tamanho de 4096 bytes.
+
+10. no ip domain-lookup
+Desativa a busca DNS para nomes digitados incorretamente, evitando lentidão.
+
+11. banner motd #Vivian Coimbra LGPD#
+Exibe uma mensagem de aviso (banner) ao acessar o roteador, geralmente usada para alertas de segurança.
+
+12. enable secret 123@senac
+Define a senha criptografada para acesso ao modo privilegiado (enable).
+
+13. username senac secret 123@senac
+Cria usuário com senha criptografada.
+
+14. username tatuape password 123@senac
+Cria usuário com senha simples (não criptografada).
+
+15. username admin privilege 15 secret 123@senac
+Cria usuário administrador (nível 15) com senha criptografada.
+
+16. no cdp run / no lldp run
+Desativa os protocolos de descoberta de rede (CDP e LLDP), aumentando a segurança.
+
+17. line console 0
+Configura o acesso via console (porta física):
+- login local: autenticação por usuário local
+- password 123@senac: define senha local
+- logging synchronous: evita interrupções de log
+- exec-timeout 5 30: encerra sessão inativa após 5 minutos e 30 segundos
+
+18. line vty 0 4
+Configura o acesso remoto (SSH):
+- login local: usa autenticação de usuários locais
+- password 123@senac: define senha (opcional)
+- exec-timeout 5 30: tempo de inatividade antes do desligamento da sessão
+- transport input ssh: permite apenas SSH (bloqueia Telnet)
+- logging synchronous: mantém o terminal limpo durante logs
+
+19. ip domain-name senac.br
+Define o nome de domínio necessário para gerar as chaves RSA do SSH.
+
+20. crypto key generate rsa general-keys modulus 1024
+Gera a chave criptográfica RSA usada para conexões SSH seguras.
+
+21. ip ssh version 2
+Ativa a versão 2 do SSH (mais segura).
+
+22. ip ssh time-out 60
+Define o tempo limite de autenticação SSH (60 segundos).
+
+23. ip ssh authentication-retries 2
+Limita a 2 tentativas de autenticação SSH antes de encerrar a conexão.
+
+24. end
+Sai do modo de configuração e volta ao modo privilegiado.
+
+25. copy running-config startup-config
+Salva a configuração atual (em execução) na NVRAM, para manter as alterações após reinicialização.
