@@ -42,7 +42,12 @@ enable
             description interface de Gateway da LAN
             ip address 172.16.100.254 255.255.255.0
             no shutdown
-            end 
+            exit
+        interface gigabitEthernet 0/0
+            description Interface de Gateway da Rede LAN
+            ip address 172.16.100.254 255.255.255.0
+            no shutdown
+            end
     
          
     copy running-config startup-config

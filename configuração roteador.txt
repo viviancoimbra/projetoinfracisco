@@ -3,9 +3,9 @@ enable
    clock set 19:20:00 15 October 2025
    configure terminal
         hostname rt-01
-        service password-encryptation
+        service password-encrytion
         security passwords min-length 8
-        login block-for 120 attemps 2 within 60
+        login block-for 120 attempts 2 within 60
         service timestamps log datetime msec
         service timestamps debug datetime msec
         logging buffered 4096
