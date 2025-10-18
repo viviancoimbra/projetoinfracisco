@@ -3,7 +3,7 @@ enable
    clock set 20:20:00 10 October 2025
    configure terminal
         hostname sw-01
-        service password-encryptation
+        service password-encryption
         service timestamps log datetime msec
         logging buffered 4096
         no ip domain-lookup

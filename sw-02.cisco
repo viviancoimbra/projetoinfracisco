@@ -1,8 +1,8 @@
 !Entrar no modo Exec privilegiado
 enable
-   clock set 20:20:00 10 October 2025
+   clock set 19:50:00 17 October 2025
    configure terminal
-        hostname sw-02
+        hostname sw-04
         service password-encryption
         service timestamps log datetime msec
         logging buffered 4096
@@ -29,10 +29,10 @@ enable
             logging synchronous
             exit
         !configurando o SVI
-        ip default-gateway 192.168.1.254 
+        ip default-gateway 172.16.100.254 
         interface vlan 1
             description Interface de SVI
-            ip address 192.168.1.251 255.255.255.0
+            ip address 172.16.100.251 255.255.255.0
             no shutdown
             exit
         !configurando o SSH
