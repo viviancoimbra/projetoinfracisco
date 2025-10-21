@@ -1,0 +1,26 @@
+!Backup da Memória RAM para NVRAM SWITCH CISCO
+copy running-config startup-config
+
+!Backup da Memória RAM para FLASH (HD)
+copy running-config flash:
+
+!Backup da Memória RAM para Server Remoto
+copy running-config tftp
+
+!Backup da Memória RAM para arquivo Texto no vscode
+show running-config
+
+!Copie desde o primeiro ponto de exclamação depois de "courent" até end, em seguida cole no vscode.ssss
+
+
+
+
+
+
+
+
+
+
+!Pingue o switch ou o equipamento a se feito o backup
+!Usando como exemplo o backup do switch, entre via ssh ou console
+!Realise o backup.
